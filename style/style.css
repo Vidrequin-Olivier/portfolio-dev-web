@@ -1,0 +1,402 @@
+:root {
+  --color1: #f5f5f5;
+  --color2: #20b2aa4d;
+  --color3: #20b2aa9c;
+  --color4: #00e0e0ed;
+  --color5: lightseagreen;
+  --color6: darkcyan;
+  --color7: #003737;
+  --color8: #1e1e1e;
+  --transitionDuration: 500ms;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-family: math;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color1);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: clamp(1px, 100vw, 1920px);
+}
+body.darkTheme {
+  background-color: var(--color8);
+  color: var(--color1);
+}
+
+ul {
+  list-style: none;
+}
+
+.contactMe {
+  padding: clamp(15px, 1vw, 50px);
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--color6);
+  background-color: var(--color2);
+  font-size: clamp(12px, 1.5vw, 24px);
+}
+.contactMe.darkTheme {
+  color: var(--color7);
+  background-color: var(--color4);
+}
+.contactMe:hover {
+  color: var(--color1);
+  background-color: var(--color3);
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: clamp(70px, 12vw, 200px);
+  padding-bottom: clamp(20px, 3vw, 50px);
+  background: linear-gradient(rgba(0, 224, 224, 0.2) 1%, var(--color1) 40%, rgba(0, 224, 224, 0.2) 75%, var(--color1) 80%);
+}
+header.darkTheme {
+  background: linear-gradient(dimgrey, var(--color8) 100%);
+}
+header h1 {
+  margin-top: clamp(1px, 1vw, 20px);
+  margin-bottom: clamp(1px, 2vw, 50px);
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(20px, 5vw, 70px);
+  color: var(--color6);
+}
+header h1.darkTheme {
+  color: var(--color4);
+}
+header .headerTitle {
+  margin: clamp(3px, 1vw, 30px);
+  font-size: clamp(15px, 4vw, 60px);
+  font-weight: 600;
+  color: var(--color6);
+}
+header .headerTitle.darkTheme {
+  color: var(--color4);
+}
+header .burgerMenu {
+  position: relative;
+  color: var(--color6);
+  background-color: var(--color2);
+  border-radius: 5px;
+}
+header .burgerMenu.darkTheme {
+  color: var(--color2);
+  background-color: var(--color4);
+}
+header .burgerMenu:hover {
+  background-color: var(--color3);
+}
+header .burgerButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+}
+header .burgerButton .line {
+  background-color: dimgrey;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+header .burgerButton.open .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+header .burgerButton.open .line:nth-child(2) {
+  opacity: 0;
+}
+header .burgerButton.open .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+header .menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 10;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: var(--color2);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: clamp(15px, 3vw, 30px);
+}
+header .menu.darkTheme {
+  background-color: var(--color4);
+}
+header .menu li {
+  margin: 10px 0;
+}
+header .menu li a {
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+header .menu li a:hover {
+  color: var(--color1);
+  background-color: var(--color3);
+}
+header .burgerButton.open + .menu {
+  display: block;
+}
+header button {
+  background: none;
+  border: none;
+}
+header .themeContainer {
+  display: flex;
+  align-items: center;
+}
+header .themeContainer .themeToggleButton {
+  padding: clamp(10px, 0.7vw, 25px);
+  border-radius: 25px;
+  margin: clamp(10px, 1vw, 20px);
+  cursor: pointer;
+  border: none;
+  color: var(--color6);
+  background-color: var(--color2);
+  font-size: clamp(10px, 2vw, 20px);
+}
+header .themeContainer .themeToggleButton.darkTheme {
+  color: var(--color7);
+  background-color: var(--color4);
+}
+header .themeContainer .themeToggleButton:hover {
+  color: var(--color1);
+  background-color: var(--color3);
+}
+header .themeContainer i {
+  font-size: clamp(20px, 3vw, 40px);
+}
+header .themeContainer .fa-sun {
+  display: none;
+  color: #dbb733;
+}
+header .themeContainer .fa-moon {
+  display: block;
+  color: #1f60d1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main a {
+  color: var(--color6);
+}
+main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .presentation {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+main .presentation .contactButton {
+  width: -moz-max-content;
+  width: max-content;
+  display: none;
+  border: none;
+  background: none;
+  position: absolute;
+}
+main .presentation .personalPresentation {
+  padding: clamp(20px, 3vw, 50px);
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: clamp(25px, 2vw, 35px);
+}
+main .presentation .bold, main .presentation .bold * {
+  font-weight: 700;
+}
+main .presentation figure {
+  height: clamp(1px, 50vw, 800px);
+  margin-right: 5vw;
+  position: relative;
+}
+main .presentation figure img {
+  height: 100%;
+}
+main .presentation figure .linearGradient {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20vw;
+  background: linear-gradient(180deg, transparent, var(--color1));
+}
+main .presentation figure .linearGradient.darkTheme {
+  background: linear-gradient(180deg, transparent, var(--color8));
+}
+main .slider {
+  display: flex;
+  justify-content: space-evenly;
+  width: clamp(1px, 100vw, 1440px);
+}
+main .slider .sliderArrow {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: clamp(1px, 3vw, 20px);
+  margin-top: clamp(125px, 50vw, 600px);
+  border: none;
+  background-color: transparent;
+}
+main .slider .sliderLeftArrow, main .slider .sliderRightArrow {
+  font-size: clamp(30px, 12vw, 150px);
+  color: var(--color5);
+}
+main .slider .slide {
+  width: clamp(1px0, 30vw, 500px);
+  display: none;
+}
+main .slider .slide.active {
+  display: block;
+}
+main .slider .slide h3 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: clamp(20px, 4vw, 40px);
+}
+main .slider img {
+  width: 100%;
+}
+main .slider figcaption {
+  font-size: clamp(12px, 1.5vw, 24px);
+}
+main h2 {
+  margin-top: clamp(30px, 8vw, 150px);
+  margin-bottom: clamp(20px, 2vw, 50px);
+  font-size: clamp(25px, 4.5vw, 50px);
+  font-weight: 600;
+  color: var(--color5);
+  text-align: center;
+}
+main .commitments {
+  max-width: 80vw;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: clamp(25px, 2vw, 35px);
+}
+main .toolsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 3vw, 20px);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto clamp(30px, 10vw, 100px);
+}
+main .toolsContainer li {
+  width: -moz-fit-content;
+  width: fit-content;
+  align-content: center;
+  margin: clamp(10px, 1vw, 20px);
+  font-size: clamp(15px, 2.5vw, 30px);
+}
+main .toolsContainer li figure {
+  display: flex;
+  align-items: center;
+}
+main .toolsContainer li figure img {
+  width: clamp(26px, 5.5vw, 70px);
+}
+main .toolsContainer li figure svg {
+  width: clamp(20px, 3vw, 70px);
+  height: clamp(20px, 3vw, 70px);
+}
+main .toolsContainer li figure figcaption {
+  margin-left: 10px;
+}
+main .fontLinks {
+  max-width: 80%;
+  margin-bottom: clamp(30px, 10vw, 100px);
+  font-size: clamp(12px, 1vw, 18px);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1080px) {
+  main .presentation {
+    margin-top: 5vw;
+  }
+  main .presentation .personalPresentation {
+    padding: clamp(25px, 5vw, 50px);
+  }
+}
+@media screen and (max-width: 767px) {
+  header .contactButton {
+    display: none;
+  }
+  header .themeContainer {
+    display: none;
+  }
+  header .menu {
+    background-color: var(--color4);
+  }
+  main .presentation {
+    flex-direction: column;
+  }
+  main .presentation figure {
+    padding-left: 27vw;
+  }
+  main .presentation figure .contactButton {
+    display: block;
+    left: 25%;
+    top: 15%;
+  }
+  main .toolsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 420px) {
+  main .contactButton {
+    left: 10% !important;
+  }
+  main .toolsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 349px) {
+  main .contactButton {
+    left: 5% !important;
+  }
+  main .toolsContainer {
+    gap: 0;
+  }
+}
+@media screen and (max-width: 250px) {
+  main .presentation figure {
+    margin: 0;
+    padding: 0;
+  }
+  main .presentation figure img {
+    display: none;
+  }
+  main .presentation figure .linearGradient {
+    display: none;
+  }
+  main .presentation figure .contactButton {
+    left: -20vw !important;
+  }
+}/*# sourceMappingURL=style.css.map */

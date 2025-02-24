@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olivier Vidrequin Portfolio</title>
+  <link rel="icon" type="image/png" href="./assets/images/Atomlogo32.png">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8513b42a9a.js" crossorigin="anonymous"></script>
+  <script src="./js/index.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Olivier Vidrequin</h1>
+
+    <div class="burgerMenu">
+      <button class="burgerButton" aria-label="Toggle menu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+      <nav class="menu">
+        <ul>
+          <li><a href="#projects">Projets réalisés</a></li>
+          <li><a href="#commitments">Mes engagements</a></li>
+          <li><a href="#languagesAndTools">Languages et outils</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <button class="contactButton">
+      <a href="https://forms.gle/KrxDe3o8PSxkmTUf7" target="_blank" class="contactMe">Me contacter</a>
+    </button>
+
+    <div class="themeContainer">
+      <button class="themeToggleButton">Basculer en<br>Thème Sombre</button>
+      <i class="fa-solid fa-sun"></i>
+      <i class="fa-solid fa-moon"></i>
+    </div>
+  </header>
+
+  <main>
+    <section class="presentation">
+      <p class="personalPresentation">
+        Bonjour et bienvenue sur mon portfolio ! <br><br>
+        Je m'appelle <span class="bold"><strong>Olivier Vidrequin</strong></span> et je suis développeur web <span class="bold">fullstack<strong></strong></span>.<br>
+        Principalement orienté front-end, je suis également capable de travailler sur la partie back-end pour gérer les bases de données et les serveurs.<br>
+        Tout particulièrement intéressé par les technologies liées à <span class="bold">JavaScript</span>, je privilégie <span class="bold">Next.js</span> et <span class="bold">TypeScript</span> pour leur <span class="bold">efficacité</span> et leur <span class="bold">robustesse</span>.<br>
+        Toujours à l'écoute de nouvelles opportunités, je vous propose mes services pour la réalisation de vos projets web.<br>
+      </p>
+
+      <figure>
+        <button class="contactButton">
+          <a href="https://forms.gle/KrxDe3o8PSxkmTUf7" target="_blank" class="contactMe">Me contacter</a>
+        </button>
+        <img src="./assets/images/portraitPortfolio.png" alt="Photo portrait de Olivier Vidrequin.">
+        <div class="linearGradient"></div>
+      </figure>
+    </section>
+
+    <section id="projects">
+      <h2>Quelques projets que j'ai réalisés</h2>
+
+      <div class="slider">
+        <button class="sliderArrow" onclick="changeSlide(-1)">
+          <i class="fa-solid fa-chevron-left sliderLeftArrow"></i>
+        </button>
+
+        <div class="slides">
+          <figure class="slide active">
+            <h3>Site web dynamique</h3>
+            <img src="./assets/images/Florence-Demeusy-Photographe.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
+            <figcaption>
+              Ceci est un projet personnel. J'ai fait une copie (en full custom) de la page d'accueil d'un site initialement réalisé sous Wordpress.<br>
+              Pour voir le résultat, cliquer <a href="https://vidrequin-olivier.github.io/Florence-Demeusy-Photographe/" target="_blank">ici</a>,
+              et pour consulter le code sur Github, cliquer <a href="https://github.com/Vidrequin-Olivier/Florence-Demeusy-Photographe" target="_blank">ici</a>.
+            </figcaption>
+          </figure>
+          
+          <figure class="slide">
+            <h3>Serveur et base de données</h3>
+            <img src="./assets/images/projetBackend.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
+            <figcaption>
+              Ceci est un exercice réalisé pendant ma formation.<br>
+              Pour ce projet, j'ai créé la partie serveur avec Express et la base de données avec MongoDB.<br>
+              Cliquer <a href="https://github.com/Vidrequin-Olivier/Projet-6-dev-back-end" target="_blank">ici</a> pour consulter le code sur Github.
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <h3>Application web</h3>
+            <img src="./assets/images/kasa.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
+            <figcaption>
+              Ceci est un exercice réalisé pendant ma formation.<br>
+              Pour ce projet, j'ai créé une application web avec React.<br>
+              Cliquer <a href="https://github.com/Vidrequin-Olivier/Projet-5---application-web-avec-React" target="_blank">ici</a> pour consulter le code sur Github.
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <h3>Site vitrine</h3>
+            <img src="./assets/images/booki.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
+            <figcaption>
+              Ceci est un exercice réalisé pendant ma formation.<br>
+              Pour ce projet, j'ai créé une page d'accueil en HTML et CSS.<br>
+              Pour voir le résultat, cliquer <a href="https://vidrequin-olivier.github.io/booki-starter-code/" target="_blank">ici</a>,
+              et pour consulter le code sur Github, cliquer <a href="https://github.com/Vidrequin-Olivier/booki-starter-code" target="_blank">ici</a>.
+            </figcaption>
+          </figure>
+        </div>
+
+        <button class="sliderArrow" onclick="changeSlide(1)">
+          <i class="fa-solid fa-chevron-right sliderRightArrow"></i>
+        </button>
+      </div>
+
+    </section>
+
+    <section id="commitments" class="commitments">
+      <h2>Mes engagements</h2>
+      <ul>
+        <li>Professionalisme et respect.</li>
+        <li>Intégrations fidèles à la maquette.</li>
+        <li>Responsive Design.</li>
+        <li>Application des concepts AGILE</li>
+        <li>
+          Compatibilité sur les principaux navigateurs.<br>
+          (Chrome, Firefox, Edge, Safari, Opera)
+        </li>
+        <li>L'accessibilité pour tous.</li>
+        <li>L'optimisation des performances.</li>
+        <li>Code maintenable et évolutif.</li>
+        <li>Sécurisation des données.</li>
+        <li>Référencement (SEO)</li>
+      </ul>
+    </section>
+
+    <section id="languagesAndTools">
+      <h2>Languages et outils</h2>
+      <ul class="toolsContainer">
+        <li>
+          <figure>
+            <i class="fa-brands fa-html5 fa-2xl" style="color: #961414;"></i>
+            <figcaption>HTML</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <i class="fa-brands fa-css3-alt fa-2xl" style="color: #74C0FC;"></i>
+            <figcaption>CSS</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <img src="./assets/images/js.png" alt="Logo de JavaScript">
+            <figcaption>JavaScript</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <img src="./assets/images/typeScript.png" alt="Logo de TypeScript">
+            <figcaption>TypeScript</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <i class="fa-brands fa-react fa-2xl" style="color: #0091ff;"></i>
+            <figcaption>React</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <i class="fa-brands fa-node fa-2xl" style="color: #00cc8f;"></i>
+            <figcaption>Node</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <svg fill="currentColor" height="15" viewBox="0 0 15 15" width="15" xmlns="http://www.w3.org/2000/svg">
+              <path d="m4.5 4.5.40534-.29275c-.12698-.17581-.35282-.24972-.55917-.183-.20636.06673-.34617.25888-.34617.47575zm3 9.5c-3.58985 0-6.5-2.9101-6.5-6.5h-1c0 4.1421 3.35786 7.5 7.5 7.5zm6.5-6.5c0 3.5899-2.9101 6.5-6.5 6.5v1c4.1421 0 7.5-3.3579 7.5-7.5zm-6.5-6.5c3.5899 0 6.5 2.91015 6.5 6.5h1c0-4.14214-3.3579-7.5-7.5-7.5zm0-1c-4.14214 0-7.5 3.35786-7.5 7.5h1c0-3.58985 2.91015-6.5 6.5-6.5zm-2.5 12v-7.5h-1v7.5zm-.90534-7.20725 6.50004 8.99995.8106-.5854-6.49996-9.00005zm5.90534-.79275v6h1v-6z" fill="currentColor"/>
+            </svg>
+            <figcaption>Next</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <img src="./assets/images/iconMongodb.png" alt="Logo de MongoDB">
+            <figcaption>MongoDB</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <img src="./assets/images/chatgpt.png" alt="Logo de Chat GPT" class="gptLightTheme">
+            <img src="./assets/images/chatgpt-white.png" alt="Logo de Chat GPT" class="gptDarkTheme">
+            <figcaption>Les IA</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <img src="./assets/images/vscode.png" alt="Logo de VS Code">
+            <figcaption>VS Code</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <i class="fa-brands fa-github fa-2xl"></i>
+            <figcaption>GitHub</figcaption>
+          </figure>
+        </li>
+      </ul>
+
+      <p class="fontLinks">
+        Les icones sont importées depuis 
+        <a href="https://fontawesome.com/" target="_blank">Fontawesome</a> 
+        et <a href="https://icones8.fr" target="_blank">Icones8</a> 
+        qui fournissent gratuitement des icones très diverses en échange d'un lien vers leur site.<br>
+        Merci à eux !
+      </p>
+
+    </section>
+  </main>
+</body>
+</html>
