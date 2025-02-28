@@ -23,6 +23,9 @@ html {
   justify-content: center;
   background-color: var(--color1);
 }
+html.darkTheme {
+  background-color: var(--color8);
+}
 
 body {
   display: flex;
@@ -38,7 +41,7 @@ ul {
   list-style: none;
 }
 
-.contactMe {
+.contactButton {
   padding: clamp(15px, 1vw, 50px);
   border-radius: 25px;
   text-decoration: none;
@@ -46,13 +49,86 @@ ul {
   background-color: var(--color2);
   font-size: clamp(12px, 1.5vw, 24px);
 }
-.contactMe.darkTheme {
+.contactButton.darkTheme {
   color: var(--color7);
   background-color: var(--color4);
 }
-.contactMe:hover {
+.contactButton:hover {
   color: var(--color1);
   background-color: var(--color3);
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+}
+.modal .modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--color1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+}
+.modal .modalContent .closeModalButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: var(--color5);
+  cursor: pointer;
+}
+.modal .modalContent h3 {
+  font-size: clamp(20px, 5vw, 50px);
+  color: var(--color5);
+}
+.modal .modalContent p {
+  font-size: clamp(15px, 3vw, 30px);
+  text-align: center;
+}
+.modal .modalContent button {
+  padding: clamp(10px, 1vw, 20px);
+  border-radius: 25px;
+  border: none;
+  color: var(--color6);
+  background-color: var(--color2);
+  font-size: clamp(12px, 1.5vw, 24px);
+}
+.modal .modalContent button.darkTheme {
+  color: var(--color7);
+  background-color: var(--color4);
+}
+.modal .modalContent button:hover {
+  color: var(--color1);
+  background-color: var(--color3);
+}
+.modal .modalContent .modalInput {
+  width: 100%;
+  padding: clamp(10px, 1vw, 20px);
+  border-radius: 25px;
+  border: none;
+  font-size: clamp(12px, 1.5vw, 24px);
+}
+.modal .modalContent .modalInput.darkTheme {
+  color: var(--color7);
+  background-color: var(--color4);
+}
+.modal .modalContent .modalInput:focus {
+  outline: none;
+}
+.modal .modalContent .modalTextarea {
+  width: 100%;
+  padding: clamp(10px, 1vw, 20px);
+  border-radius: 25px;
 }
 
 header {
@@ -224,7 +300,6 @@ main .presentation .contactButton {
   width: max-content;
   display: none;
   border: none;
-  background: none;
   position: absolute;
 }
 main .presentation .personalPresentation {

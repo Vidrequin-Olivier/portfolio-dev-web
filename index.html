@@ -31,9 +31,26 @@
       </nav>
     </div>
 
-    <button class="contactButton">
-      <a href="https://forms.gle/KrxDe3o8PSxkmTUf7" target="_blank" class="contactMe">Me contacter</a>
-    </button>
+    <button class="contactButton">Me contacter</button>
+
+    <div class="modal">
+      <div class="modalContent">
+        <button class="closeModalButton">X</button>
+
+        <form action="https://formspree.io/f/moqyqzqz" method="POST">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+
+          <label for="message">Message</label>
+          <textarea name="message" id="message" required></textarea>
+
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
 
     <div class="themeContainer">
       <button class="themeToggleButton">Basculer en<br>Thème Sombre</button>
@@ -53,9 +70,7 @@
       </p>
 
       <figure>
-        <button class="contactButton">
-          <a href="https://forms.gle/KrxDe3o8PSxkmTUf7" target="_blank" class="contactMe">Me contacter</a>
-        </button>
+        <button class="contactButton">Me contacter</button>
         <img src="./assets/images/portraitPortfolio.png" alt="Photo portrait de Olivier Vidrequin.">
         <div class="linearGradient"></div>
       </figure>
@@ -65,7 +80,7 @@
       <h2>Quelques projets que j'ai réalisés</h2>
 
       <div class="slider">
-        <button class="sliderArrow" onclick="changeSlide(-1)">
+        <button class="sliderArrow prev">
           <i class="fa-solid fa-chevron-left sliderLeftArrow"></i>
         </button>
 
@@ -84,7 +99,6 @@
             <h3>Serveur et base de données</h3>
             <img src="./assets/images/projetBackend.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
             <figcaption>
-              Ceci est un exercice réalisé pendant ma formation.<br>
               Pour ce projet, j'ai créé la partie serveur avec Express et la base de données avec MongoDB.<br>
               Cliquer <a href="https://github.com/Vidrequin-Olivier/Projet-6-dev-back-end" target="_blank">ici</a> pour consulter le code sur Github.
             </figcaption>
@@ -94,7 +108,6 @@
             <h3>Application web</h3>
             <img src="./assets/images/kasa.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
             <figcaption>
-              Ceci est un exercice réalisé pendant ma formation.<br>
               Pour ce projet, j'ai créé une application web avec React.<br>
               Cliquer <a href="https://github.com/Vidrequin-Olivier/Projet-5---application-web-avec-React" target="_blank">ici</a> pour consulter le code sur Github.
             </figcaption>
@@ -104,7 +117,6 @@
             <h3>Site vitrine</h3>
             <img src="./assets/images/booki.jpg" alt="Photo exemple d'un projet que j'ai réalisé">
             <figcaption>
-              Ceci est un exercice réalisé pendant ma formation.<br>
               Pour ce projet, j'ai créé une page d'accueil en HTML et CSS.<br>
               Pour voir le résultat, cliquer <a href="https://vidrequin-olivier.github.io/booki-starter-code/" target="_blank">ici</a>,
               et pour consulter le code sur Github, cliquer <a href="https://github.com/Vidrequin-Olivier/booki-starter-code" target="_blank">ici</a>.
@@ -112,7 +124,7 @@
           </figure>
         </div>
 
-        <button class="sliderArrow" onclick="changeSlide(1)">
+        <button class="sliderArrow next">
           <i class="fa-solid fa-chevron-right sliderRightArrow"></i>
         </button>
       </div>

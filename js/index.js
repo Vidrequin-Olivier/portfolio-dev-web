@@ -1,4 +1,5 @@
-const darkThemeItemsList = 	[ 
+const darkThemeItemsList = 	[
+	document.documentElement,
 	document.body, 
 	document.querySelector('header'),
 	document.querySelector('.headerTitle'),
@@ -7,7 +8,7 @@ const darkThemeItemsList = 	[
 	document.querySelector('.themeToggleButton'),
 	document.querySelector('.linearGradient'),
 	document.querySelector('h1'), 
-	...document.querySelectorAll('.contactMe')
+	...document.querySelectorAll('.contactButton')
 ];
 
 let slideAnimation = false;
@@ -34,6 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function handleFormModal() {
+	const modal = document.querySelector('.modal');
+	const contactMe = document.querySelectorAll('.contactButton');
+	const closeButton = document.querySelector('.closeModalButton');
+
+	contactMe.forEach((el) => el.addEventListener('click', () => {
+		modal.style.display = 'block';
+	}));
+
+	closeButton.addEventListener('click', () => {
+		modal.style.display = 'none';
+	});
+
+	modal.addEventListener('click', (e) => {
+		if (e.target === modal) {
+			modal.style.display = 'none';
+		};
+	});
+};
 
 
 function toggleImages() {
@@ -97,13 +118,13 @@ function handleTheme() {
 	}
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+function themeToggleButton() {
   const toggleButton = document.querySelector('.themeToggleButton');
 	toggleButton.addEventListener('click', () => {
 		toggleButtonListener();
   });
 	handleTheme();
-});
+};
 
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
@@ -145,4 +166,12 @@ function changeSlide(direction) {
     showSlide(currentSlide);
 };
 
-showSlide(currentSlide);
+function main() {
+	handleFormModal();
+	themeToggleButton();
+	showSlide(currentSlide);
+	document.querySelector('.next').addEventListener('click', () => changeSlide(1));
+	document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
+};
+
+main();
