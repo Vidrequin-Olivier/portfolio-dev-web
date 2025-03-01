@@ -56,6 +56,31 @@ function handleFormModal() {
 	});
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  emailjs.init("qNPU3GxEySM8oVaZb");
+	const modal = document.querySelector('.modal');
+
+  const contactForm = document.getElementById("contactForm");
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_qi70w8b", "template_bfe5j8n", this, "qNPU3GxEySM8oVaZb")
+      .then(() => {
+        alert("Votre message a bien été envoyé !");
+        this.reset();
+				modal.style.display = 'none';
+      })
+			.catch((error) => {
+				if (error.text.includes('rate limit')) {
+					alert("Le service de contact est temporairement indisponible. Merci de réessayer plus tard.");
+				} else {
+					alert("Une erreur est survenue, veuillez réessayer.");
+				}
+			});
+			
+  });
+});
+
 
 function toggleImages() {
 	const sun = document.querySelector('.fa-sun');

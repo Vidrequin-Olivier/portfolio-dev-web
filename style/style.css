@@ -70,30 +70,41 @@ ul {
   z-index: 30;
 }
 .modal .modalContent {
+  position: relative;
+  margin: 20vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
   background-color: var(--color1);
   border-radius: 10px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
 }
 .modal .modalContent .closeModalButton {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 20px;
+  font-size: clamp(10px, 1.5vw, 20px);
   color: var(--color5);
   cursor: pointer;
 }
-.modal .modalContent h3 {
-  font-size: clamp(20px, 5vw, 50px);
-  color: var(--color5);
+.modal .modalContent #contactForm {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  color: black;
 }
-.modal .modalContent p {
-  font-size: clamp(15px, 3vw, 30px);
+.modal .modalContent #contactForm input, .modal .modalContent #contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--color5);
   text-align: center;
+}
+.modal .modalContent #contactForm textarea {
+  height: 20vw;
+  text-align: left;
 }
 .modal .modalContent button {
   padding: clamp(10px, 1vw, 20px);
@@ -103,32 +114,10 @@ ul {
   background-color: var(--color2);
   font-size: clamp(12px, 1.5vw, 24px);
 }
-.modal .modalContent button.darkTheme {
-  color: var(--color7);
-  background-color: var(--color4);
-}
 .modal .modalContent button:hover {
   color: var(--color1);
   background-color: var(--color3);
-}
-.modal .modalContent .modalInput {
-  width: 100%;
-  padding: clamp(10px, 1vw, 20px);
-  border-radius: 25px;
-  border: none;
-  font-size: clamp(12px, 1.5vw, 24px);
-}
-.modal .modalContent .modalInput.darkTheme {
-  color: var(--color7);
-  background-color: var(--color4);
-}
-.modal .modalContent .modalInput:focus {
-  outline: none;
-}
-.modal .modalContent .modalTextarea {
-  width: 100%;
-  padding: clamp(10px, 1vw, 20px);
-  border-radius: 25px;
+  cursor: pointer;
 }
 
 header {

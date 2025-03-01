@@ -10,7 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/8513b42a9a.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
   <script src="./js/index.js" defer></script>
+  
 </head>
 <body>
   <header>
@@ -35,17 +37,17 @@
 
     <div class="modal">
       <div class="modalContent">
-        <button class="closeModalButton">X</button>
-
-        <form action="https://formspree.io/f/moqyqzqz" method="POST">
+        <form id="contactForm">
+          <button class="closeModalButton">X</button>
+          
           <label for="name">Nom</label>
-          <input type="text" name="name" id="name" required>
+          <input type="text" name="name" id="name" placeholder="Votre nom" required>
 
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" required>
+          <input type="email" name="email" id="email" placeholder="Votre email de contact" required>
 
           <label for="message">Message</label>
-          <textarea name="message" id="message" required></textarea>
+          <textarea name="message" id="message" placeholder="Votre message" required></textarea>
 
           <button type="submit">Envoyer</button>
         </form>
@@ -137,16 +139,16 @@
         <li>Professionalisme et respect.</li>
         <li>Intégrations fidèles à la maquette.</li>
         <li>Responsive Design.</li>
-        <li>Application des concepts AGILE</li>
+        <li>Application des concepts AGILE.</li>
         <li>
-          Compatibilité sur les principaux navigateurs.<br>
-          (Chrome, Firefox, Edge, Safari, Opera)
+          Compatibilité sur les principaux navigateurs<br>
+          (Chrome, Firefox, Edge, Safari, Opera).
         </li>
         <li>L'accessibilité pour tous.</li>
         <li>L'optimisation des performances.</li>
         <li>Code maintenable et évolutif.</li>
         <li>Sécurisation des données.</li>
-        <li>Référencement (SEO)</li>
+        <li>Référencement (SEO).</li>
       </ul>
     </section>
 

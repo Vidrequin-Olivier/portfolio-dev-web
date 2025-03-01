@@ -64,30 +64,41 @@ ul
   z-index: 30
 
   .modalContent
+    position: relative
+    margin: 20vw
     display: flex
     flex-direction: column
     align-items: center
-    gap: 20px
-    padding: 20px
     background-color: var(--color1)
     border-radius: 10px
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5)
 
     .closeModalButton
       position: absolute
       top: 10px
       right: 10px
-      font-size: 20px
+      font-size: clamp(10px, 1.5vw, 20px)
       color: var(--color5)
       cursor: pointer
 
-    h3
-      font-size: clamp(20px, 5vw, 50px)
-      color: var(--color5)
+    #contactForm
+      width: 80%
+      display: flex
+      flex-direction: column
+      align-items: center
+      gap: 10px
+      padding: 20px
+      color: black
 
-    p
-      font-size: clamp(15px, 3vw, 30px)
-      text-align: center
+      input, textarea
+        width: 100%
+        padding: 10px
+        border-radius: 5px
+        border: 1px solid var(--color5)
+        text-align: center
+
+      textarea
+        height: 20vw
+        text-align: left
 
     button
       padding: clamp(10px, 1vw, 20px)
@@ -97,32 +108,10 @@ ul
       background-color: var(--color2)
       font-size: clamp(12px, 1.5vw, 24px)
 
-      &.darkTheme
-        color: var(--color7)
-        background-color: var(--color4)
-
       &:hover
         color: var(--color1)
         background-color: var(--color3)
-
-    .modalInput
-      width: 100%
-      padding: clamp(10px, 1vw, 20px)
-      border-radius: 25px
-      border: none
-      font-size: clamp(12px, 1.5vw, 24px)
-
-      &.darkTheme
-        color: var(--color7)
-        background-color: var(--color4)
-
-      &:focus
-        outline: none
-
-    .modalTextarea
-      width: 100%
-      padding: clamp(10px, 1vw, 20px)
-      border-radius: 25px
+        cursor: pointer
 
 header
   display: flex
