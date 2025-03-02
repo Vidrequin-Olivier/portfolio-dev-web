@@ -71,7 +71,8 @@ ul {
 }
 .modal .modalContent {
   position: relative;
-  margin: 20vw;
+  margin: 10vh auto;
+  width: clamp(1px, 60vw, 800px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,14 +97,15 @@ ul {
   color: black;
 }
 .modal .modalContent #contactForm input, .modal .modalContent #contactForm textarea {
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid var(--color5);
   text-align: center;
 }
 .modal .modalContent #contactForm textarea {
-  height: 20vw;
+  height: clamp(50px, 10vw, 200px);
   text-align: left;
 }
 .modal .modalContent button {
