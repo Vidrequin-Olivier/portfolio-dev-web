@@ -58,55 +58,50 @@ function handleFormModal() {
 
 document.addEventListener("DOMContentLoaded", () => {
   emailjs.init("qNPU3GxEySM8oVaZb");
-	const modal = document.querySelector('.modal');
-
+  const modal = document.querySelector('.modal');
   const contactForm = document.getElementById("contactForm");
-  contactForm.addEventListener("submit", function(e) {
-    e.preventDefault();
 
-    emailjs.sendForm("service_qi70w8b", "template_bfe5j8n", this, "qNPU3GxEySM8oVaZb")
-      .then(() => {
-        alert("Votre message a bien été envoyé !");
-        this.reset();
-				modal.style.display = 'none';
-      })
-			.catch((error) => {
-				if (error.text.includes('rate limit')) {
-					alert("Le service de contact est temporairement indisponible. Merci de réessayer plus tard.");
-				} else {
-					alert("Une erreur est survenue, veuillez réessayer.");
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    contactForm.checkValidity()
+      ? await (async () => {
+				try {
+					await emailjs.sendForm("service_qi70w8b", "template_bfe5j8n", contactForm, "qNPU3GxEySM8oVaZb");
+					alert("Votre message a bien été envoyé !");
+					contactForm.reset();
+					modal.style.display = 'none';
+				} catch (error) {
+					alert(
+						error.text?.includes('rate limit')
+							? "Le service de contact est temporairement indisponible. Merci de réessayer plus tard."
+							: "Une erreur est survenue, veuillez réessayer."
+					);
 				}
-			});
-			
+			})()
+      : contactForm.reportValidity();
   });
 });
 
-
 function toggleImages() {
-	const sun = document.querySelector('.fa-sun');
-	const moon = document.querySelector('.fa-moon');
-	const gptLightTheme = document.querySelector('.gptLightTheme');
-	const gptDarkTheme = document.querySelector('.gptDarkTheme');
+  const sun = document.querySelector('.fa-sun');
+  const moon = document.querySelector('.fa-moon');
+  const gptLightTheme = document.querySelector('.gptLightTheme');
+  const gptDarkTheme = document.querySelector('.gptDarkTheme');
+	const themeColor = localStorage.getItem('theme')
 
-  if (gptLightTheme.style.display === 'block') {
-    moon.style.display = 'none';
-    sun.style.display = 'block';
-    gptLightTheme.style.display = 'none';
-    gptDarkTheme.style.display = 'block';
-  } else {
-    sun.style.display = 'none';
-    moon.style.display = 'block';
-    gptDarkTheme.style.display = 'none';
-    gptLightTheme.style.display = 'block';
-  };
+  themeColor === 'dark'
+    ? (sun.style.display = 'none',
+			moon.style.display = 'block',
+			gptDarkTheme.style.display = 'none',
+			gptLightTheme.style.display = 'block')
+    : (moon.style.display = 'none',
+			sun.style.display = 'block',
+			gptLightTheme.style.display = 'none',
+			gptDarkTheme.style.display = 'block');
 };
 
 function toggleButtonListener() {
-	darkThemeItemsList.forEach((element) => {
-		if (element) {
-			element.classList.toggle('darkTheme');
-		};
-	});
+	darkThemeItemsList.forEach((el) => el ? el.classList.toggle('darkTheme') : null);
 
 	toggleImages();
 	
@@ -124,24 +119,18 @@ function handleTheme() {
 	const gptLightTheme = document.querySelector('.gptLightTheme');
 	const gptDarkTheme = document.querySelector('.gptDarkTheme');
 
-	if (currentTheme === 'light') {
-		sun.style.display = 'none';
-    moon.style.display = 'block';
-		gptLightTheme.style.display = 'block';
-		gptDarkTheme.style.display = 'none';
-  } else {
-		darkThemeItemsList.forEach((element) => {
-			if (element) {
-				element.classList.add('darkTheme');
-			};
-		});
-    toggleButton.innerHTML = 'Basculer en<br>Thème clair';
-    moon.style.display = 'none';
-    sun.style.display = 'block';
-		gptLightTheme.style.display = 'none';
-		gptDarkTheme.style.display = 'block';
-	}
-};
+		currentTheme === 'light'
+		? (sun.style.display = 'none',
+			 moon.style.display = 'block',
+			 gptLightTheme.style.display = 'block',
+			 gptDarkTheme.style.display = 'none')
+		: darkThemeItemsList.forEach((element) => element?.classList.add('darkTheme'));
+			toggleButton.innerHTML = 'Basculer en<br>Thème clair';
+			moon.style.display = 'none';
+			sun.style.display = 'block';
+			gptLightTheme.style.display = 'none';
+			gptDarkTheme.style.display = 'block';
+	};
 
 function themeToggleButton() {
   const toggleButton = document.querySelector('.themeToggleButton');
