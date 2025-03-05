@@ -58,27 +58,24 @@ function handleFormModal() {
 
 document.addEventListener("DOMContentLoaded", () => {
   emailjs.init("qNPU3GxEySM8oVaZb");
-  const modal = document.querySelector('.modal');
-  const contactForm = document.getElementById("contactForm");
+	const modal = document.querySelector('.modal');
 
-  contactForm.addEventListener("submit", async (e) => {
+  const contactForm = document.getElementById("contactForm");
+  contactForm.addEventListener("submit", function(e) {
     e.preventDefault();
-    contactForm.checkValidity()
-      ? await (async () => {
-				try {
-					await emailjs.sendForm("service_qi70w8b", "template_bfe5j8n", contactForm, "qNPU3GxEySM8oVaZb");
-					alert("Votre message a bien été envoyé !");
-					contactForm.reset();
-					modal.style.display = 'none';
-				} catch (error) {
-					alert(
-						error.text?.includes('rate limit')
-							? "Le service de contact est temporairement indisponible. Merci de réessayer plus tard."
-							: "Une erreur est survenue, veuillez réessayer."
-					);
-				}
-			})()
-      : contactForm.reportValidity();
+
+    emailjs.sendForm("service_qi70w8b", "template_bfe5j8n", this, "qNPU3GxEySM8oVaZb")
+      .then(() => {
+        alert("Votre message a bien été envoyé !");
+        this.reset();
+				modal.style.display = 'none';
+      })
+			.catch((error) => {
+				error.text.includes('rate limit') 
+				? alert("Le service de contact est temporairement indisponible. Merci de réessayer plus tard.") 
+				: alert("Une erreur est survenue, veuillez réessayer.");			
+			});
+			
   });
 });
 
@@ -89,19 +86,19 @@ function toggleImages() {
   const gptDarkTheme = document.querySelector('.gptDarkTheme');
 	const themeColor = localStorage.getItem('theme')
 
-  themeColor === 'dark'
-    ? (sun.style.display = 'none',
-			moon.style.display = 'block',
-			gptDarkTheme.style.display = 'none',
-			gptLightTheme.style.display = 'block')
-    : (moon.style.display = 'none',
-			sun.style.display = 'block',
-			gptLightTheme.style.display = 'none',
-			gptDarkTheme.style.display = 'block');
+	gptLightTheme.style.display === 'block' 
+  ? (moon.style.display = 'none', sun.style.display = 'block',
+		 gptLightTheme.style.display = 'none',
+		 gptDarkTheme.style.display = 'block') 
+  : (sun.style.display = 'none', moon.style.display = 'block',
+		 gptDarkTheme.style.display = 'none',
+		 gptLightTheme.style.display = 'block');
 };
 
 function toggleButtonListener() {
-	darkThemeItemsList.forEach((el) => el ? el.classList.toggle('darkTheme') : null);
+	darkThemeItemsList.forEach((el) => {
+		if (el) {el.classList.toggle('darkTheme');};
+	});
 
 	toggleImages();
 	
@@ -119,18 +116,16 @@ function handleTheme() {
 	const gptLightTheme = document.querySelector('.gptLightTheme');
 	const gptDarkTheme = document.querySelector('.gptDarkTheme');
 
-		currentTheme === 'light'
-		? (sun.style.display = 'none',
-			 moon.style.display = 'block',
-			 gptLightTheme.style.display = 'block',
-			 gptDarkTheme.style.display = 'none')
-		: darkThemeItemsList.forEach((element) => element?.classList.add('darkTheme'));
-			toggleButton.innerHTML = 'Basculer en<br>Thème clair';
-			moon.style.display = 'none';
-			sun.style.display = 'block';
-			gptLightTheme.style.display = 'none';
-			gptDarkTheme.style.display = 'block';
-	};
+	currentTheme === 'light' 
+  ? (sun.style.display = 'none', moon.style.display = 'block',
+		 gptLightTheme.style.display = 'block', gptDarkTheme.style.display = 'none') 
+  : (darkThemeItemsList.forEach((el) => { if (el) {el.classList.add('darkTheme');}}),
+     toggleButton.innerHTML = 'Basculer en<br>Thème clair',
+     moon.style.display = 'none', 
+     sun.style.display = 'block',
+     gptLightTheme.style.display = 'none', 
+     gptDarkTheme.style.display = 'block');
+};
 
 function themeToggleButton() {
   const toggleButton = document.querySelector('.themeToggleButton');
