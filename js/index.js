@@ -71,11 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				modal.style.display = 'none';
       })
 			.catch((error) => {
-				if (error.text.includes('rate limit')) {
-					alert("Le service de contact est temporairement indisponible. Merci de réessayer plus tard.");
-				} else {
-					alert("Une erreur est survenue, veuillez réessayer.");
-				}
+				error.text.includes('rate limit') 
+				? alert("Le service de contact est temporairement indisponible. Merci de réessayer plus tard.") 
+				: alert("Une erreur est survenue, veuillez réessayer.");			
 			});
 			
   });
@@ -88,24 +86,18 @@ function toggleImages() {
 	const gptLightTheme = document.querySelector('.gptLightTheme');
 	const gptDarkTheme = document.querySelector('.gptDarkTheme');
 
-  if (gptLightTheme.style.display === 'block') {
-    moon.style.display = 'none';
-    sun.style.display = 'block';
-    gptLightTheme.style.display = 'none';
-    gptDarkTheme.style.display = 'block';
-  } else {
-    sun.style.display = 'none';
-    moon.style.display = 'block';
-    gptDarkTheme.style.display = 'none';
-    gptLightTheme.style.display = 'block';
-  };
+	gptLightTheme.style.display === 'block' 
+  ? (moon.style.display = 'none', sun.style.display = 'block',
+		 gptLightTheme.style.display = 'none',
+		 gptDarkTheme.style.display = 'block') 
+  : (sun.style.display = 'none', moon.style.display = 'block',
+		 gptDarkTheme.style.display = 'none',
+		 gptLightTheme.style.display = 'block');
 };
 
 function toggleButtonListener() {
-	darkThemeItemsList.forEach((element) => {
-		if (element) {
-			element.classList.toggle('darkTheme');
-		};
+	darkThemeItemsList.forEach((el) => {
+		if (el) {el.classList.toggle('darkTheme');};
 	});
 
 	toggleImages();
@@ -124,23 +116,15 @@ function handleTheme() {
 	const gptLightTheme = document.querySelector('.gptLightTheme');
 	const gptDarkTheme = document.querySelector('.gptDarkTheme');
 
-	if (currentTheme === 'light') {
-		sun.style.display = 'none';
-    moon.style.display = 'block';
-		gptLightTheme.style.display = 'block';
-		gptDarkTheme.style.display = 'none';
-  } else {
-		darkThemeItemsList.forEach((element) => {
-			if (element) {
-				element.classList.add('darkTheme');
-			};
-		});
-    toggleButton.innerHTML = 'Basculer en<br>Thème clair';
-    moon.style.display = 'none';
-    sun.style.display = 'block';
-		gptLightTheme.style.display = 'none';
-		gptDarkTheme.style.display = 'block';
-	}
+	currentTheme === 'light' 
+  ? (sun.style.display = 'none', moon.style.display = 'block',
+		 gptLightTheme.style.display = 'block', gptDarkTheme.style.display = 'none') 
+  : (darkThemeItemsList.forEach((el) => { if (el) {el.classList.add('darkTheme');}}),
+     toggleButton.innerHTML = 'Basculer en<br>Thème clair',
+     moon.style.display = 'none', 
+     sun.style.display = 'block',
+     gptLightTheme.style.display = 'none', 
+     gptDarkTheme.style.display = 'block');
 };
 
 function themeToggleButton() {
